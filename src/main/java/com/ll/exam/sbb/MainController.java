@@ -2,14 +2,19 @@ package com.ll.exam.sbb;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.List;
 
 
 @Controller
@@ -116,7 +121,31 @@ public class MainController {
 
         return article;
     }
+
+
+    @GetMapping("addPersonOldWay")
+    @ResponseBody
+    Person addPersonOldWay(int id, int age, String name) {
+        Person p = new Person(id, age, name);
+
+        return p;
+    }
+
+    @GetMapping("/addPerson/{id}")
+    @ResponseBody
+    Person addPerson(Person p) {
+        return p;
+    }
 }
+
+
+    @AllArgsConstructor
+    @Getter
+    class Person {
+        private int id;
+        private int age;
+        private String name;
+    }
 
 @AllArgsConstructor
     @Getter
