@@ -18,6 +18,10 @@ class SbbApplicationTests {
 	private QuestionRepository questionRepository;
 
 	@Test
+	void testJpa0() {
+		questionRepository.truncate();
+	}
+	@Test
 	void testJpaa() {
 		Question q1 = new Question();
 		q1.setSubject("sbb가 무엇인가요?");

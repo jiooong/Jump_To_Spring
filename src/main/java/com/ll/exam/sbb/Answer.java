@@ -22,5 +22,6 @@ public class Answer {
     private LocalDateTime createDate;
 
     @ManyToOne //N:1관계
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT)) // 제약사항없음
     private Question question;
 }
