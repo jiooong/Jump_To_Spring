@@ -13,11 +13,11 @@ import java.util.List;
 @Controller
 public class QuestionController {
 
-    private final QuestionRepository questionRepository;
+    private final QuestionService questionService;
 
     @RequestMapping("/question/list")
     public String list(Model model) { //컨트롤러 메서드의 매개변수로 지정하면 스프링부트가 자동으로 Model객체를 생성한다.
-        List<Question> questionList=this.questionRepository.findAll();
+        List<Question> questionList=this.questionService.getList();
         model.addAttribute("questionList", questionList);
         return "question_list";
     }
