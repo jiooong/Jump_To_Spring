@@ -11,4 +11,10 @@ public class MainController {
     public String hello(){
         return "Hello";
     }
+
+    @RequestMapping("/sbb")
+    @ResponseBody
+    public String sbb(){
+        return "index";
+    }
 }
