@@ -5,12 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import javax.persistence.Id;
 
 @Getter
 @Setter
@@ -28,4 +24,7 @@ public class Question {
 
 
     private LocalDateTime createDate;
+
+    @ManyToOne
+    private Question question;
 }
