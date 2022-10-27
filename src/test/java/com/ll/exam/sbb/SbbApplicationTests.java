@@ -19,11 +19,14 @@ class SbbApplicationTests {
 
 	@Test
 	void testJpa() {
+
+		assertEquals(3, this.questionRepository.count());
 		Optional<Question> oq = this.questionRepository.findById(2);
 		assertTrue(oq.isPresent());
 		Question q = oq.get();
-		q.setSubject("수정된 제목");
-		this.questionRepository.save(q);
+		this.questionRepository.delete(q);
+		assertEquals(2, this.questionRepository.count());
+
 	}
 
 
