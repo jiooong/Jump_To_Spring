@@ -10,7 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 public class QuestionController {
-    private QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
     @RequestMapping("/question/list")
     public String list(Model model){
         List<Question> questionList = this.questionRepository.findAll();
