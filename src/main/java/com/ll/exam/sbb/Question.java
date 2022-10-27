@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 
 @Getter
 @Setter
@@ -25,6 +28,6 @@ public class Question {
 
     private LocalDateTime createDate;
 
-    @ManyToOne
-    private Question question;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) //mappedby는 참조 엔티티의 속성명을 의미
+    private List<Answer> answerList;
 }
